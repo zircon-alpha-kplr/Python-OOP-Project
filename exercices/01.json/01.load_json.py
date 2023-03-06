@@ -1,8 +1,8 @@
 # Import des modules nécessaires
 import json
-from unidecode import unidecode
-import re
 import os
+import re
+from unidecode import unidecode
 
 # Get the directory path of the current Python file
 local_path = os.path.dirname(os.path.abspath(__file__))

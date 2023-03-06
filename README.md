@@ -1,3 +1,3 @@
 # PYTHON PROGRAMMATION OBJET
 
-- pip install -r requirements.txt
+- pip install -r ./exercices/requirements.txt
