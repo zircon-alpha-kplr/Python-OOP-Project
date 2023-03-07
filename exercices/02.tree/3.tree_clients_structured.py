@@ -8,7 +8,8 @@
 Cette fonction utilise les modules json et unidecode pour effectuer cette conversion. La fonction retourne le dictionnaire Python.
 
 - La fonction `create_tree_from_dict()` est utilisée pour créer un arbre treelib à partir d'un dictionnaire Python. 
-Cette fonction prend en entrée l'arbre treelib, l'identifiant du noeud parent et le dictionnaire Python à partir duquel l'arbre doit être créé. Cette fonction utilise une approche récursive pour parcourir le dictionnaire et ajouter chaque élément en tant que noeud dans l'arbre treelib.
+Cette fonction prend en entrée l'arbre treelib, l'identifiant du noeud parent et le dictionnaire Python à partir duquel l'arbre doit être créé.
+Cette fonction utilise une approche récursive pour parcourir le dictionnaire et ajouter chaque élément en tant que noeud dans l'arbre treelib.
 
 - La méthode `main()` est utilisée pour appeler les fonctions json_dict_from_file() et create_tree_from_dict() 
 et afficher l'arbre treelib résultant.
