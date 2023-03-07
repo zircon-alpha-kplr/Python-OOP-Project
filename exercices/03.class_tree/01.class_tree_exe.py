@@ -10,28 +10,28 @@ def json_dict_from_file():
     json_data = json.load(open(os.path.join(local_path, 'json_data.json'), "rb")) #load file JSON
     json_str = json.dumps(json_data) #.dumps to convert to string
     json_data = (unidecode(json_str)) #remove specials
-    json_dict = json.loads(json_data)
+    json_dict = json.loads(json_data) #.loads : re-assign to json_dict
     return json_dict
 
 # func to create a tree from a dict
 def create_tree_from_dict(json_dict):
     # define the tree
-    global tree 
-    tree = Tree()
+    global tree #makes tree as global and not intern
+    tree = Tree() # What makes the method ?
 
     # define the root node
     root_node_id = "root"
     root_node_name = "Product Classes Hierarchy"
     tree.create_node(root_node_name, root_node_id)
 
-    #traverse json data and creathe other node
+    #traverse json data and create other node
     recursive_tree_from_dict(json_dict, root_node_id)
 
     return tree
 
 
 def recursive_tree_from_dict(json_dict, parent_node_id):
-    for class_name, class_attrs in json_dict.items():
+    for class_name, class_attrs in json_dict.items(): #re-assign var name for tuple list returned by items
             class_node_id = class_name
             class_node_name = class_name
 
@@ -45,8 +45,8 @@ def recursive_tree_from_dict(json_dict, parent_node_id):
 
 # func MAIN
 def main():
-    json_dict = json_dict_from_file() #call func "json_dict_from_file() : Load JSON and convert to dict
-    my_tree = create_tree_from_dict(json_dict)
+    json_dict = json_dict_from_file() #call func to define json_dict
+    my_tree = create_tree_from_dict(json_dict) #call func to define my_tree
     my_tree.show() #Show class tree
 
 
