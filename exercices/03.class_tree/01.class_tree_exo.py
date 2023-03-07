@@ -3,26 +3,34 @@ import json
 import os
 import re
 from unidecode import unidecode
+from treelib import Tree
 
 # Get the directory path of the current Python file
 local_path = os.path.dirname(os.path.abspath(__file__))
-# Chargement des données JSON à partir du fichier dans un dictionnaire python
+# Load JSON from file in a dictionary
 json_data = json.load(open(os.path.join(local_path, 'json_data.json'), "rb"))
 
-# il est nécessaire de convertir le dictionnaire en chaine de caractere pour le traiter ensuite
+# Convert the dictionary in string
 json_str = json.dumps(json_data)
 
-# Utilisation de la fonction unidecode pour enlever les accents et autres caractères spéciaux
+# Use unidecode to remove special character
 json_data = (unidecode(json_str))
 
-# Conversion de la chaine de caractere JSON à nouveau en dictionnaire Python
+# Convert string to the dictionary again
 json_dict = json.loads(json_data)
 
-# nous allons a présent utiliser la classe Tree de la librairie treelib pour construire un arbdre de donnée
 
-from treelib import Tree
-
+# Function to create Tree
 def create_tree_from_dict(tree, parent_node_id, parent_dict):
+    """
+    Cette fonction crée un arbre à partir d'un dictionnaire.
+    Elle est appelée récursivement pour chaque sous-dictionnaire.
+
+    Args:
+        tree (Tree): un objet Tree de la bibliothèque treelib pour représenter l'arbre
+        parent_node_id (str): l'identifiant du noeud parent dans l'arbre
+        parent_dict (dict): le dictionnaire Python contenant les données à insérer dans l'arbre
+    """
     for key, value in parent_dict.items():
         if isinstance(value, dict):
             # Créer un nouveau noeud pour la clé courante du dictionnaire
@@ -36,39 +44,24 @@ def create_tree_from_dict(tree, parent_node_id, parent_dict):
             leaf_node_id = f"{parent_node_id}.{key}"
             tree.create_node(tag=f"{key}: {value}", identifier=leaf_node_id, parent=parent_node_id)
 
-# Exemple de dictionnaire
-my_dict = {
-    "cle1": {
-        "souscle1": "valeur1",
-        "souscle2": "valeur2",
-        "souscle3": "valeur3"
-    },
-    "cle2": "valeur4",
-    "cle3": {
-        "souscle4": "valeur5"
-    }
-}
+def main():
+    """
+    Cette fonction est la fonction principale qui orchestre toutes les autres.
+    Elle charge les données JSON depuis un fichier, crée un objet Tree de la bibliothèque treelib,
+    et crée un arbre à partir des données JSON.
 
-# Créer un nouvel arbre
-my_tree = Tree()
+    Elle affiche ensuite l'arbre créé.
+    """
+    my_tree = Tree()
+    # Créer le noeud racine pour l'arbre
+    my_tree.create_node(tag="Racine", identifier="racine")
 
-# Créer le noeud racine pour l'arbre
-my_tree.create_node(tag="Racine", identifier="racine")
+    # Charger les données JSON depuis un fichier et créer la structure de l'arbre à partir du dictionnaire
+    create_tree_from_dict(my_tree, "racine", json_dict)
 
-# Créer la structure de l'arbre à partir du dictionnaire
-create_tree_from_dict(my_tree, "racine", my_dict)
+    # Afficher l'arbre
+    my_tree.show()
 
-# Afficher l'arbre
-my_tree.show()
-
-"""
-- Dans cet exemple, la fonction create_tree_from_dict() parcourt récursivement le dictionnaire d'entrée 
-et ajoute chaque paire clé-valeur en tant que noeud dans l'arbre. 
-
-- Si une valeur de dictionnaire est rencontrée, un nouveau noeud est créé pour la clé, 
-et la fonction est appelée récursivement pour créer un sous-arbre pour la valeur de dictionnaire. 
-
-- Si une valeur non-dictionnaire est rencontrée, un nouveau noeud est créé pour la paire clé-valeur.
-
-- Une fois que l'arbre est construit, sa méthode show() est appelée pour afficher la structure de l'arbre dans la console. 
-"""
+if __name__ == '__main__':
+    # Appeler la fonction principale
+    main()
