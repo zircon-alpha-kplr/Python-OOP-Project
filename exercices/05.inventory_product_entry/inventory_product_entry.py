@@ -4,24 +4,22 @@
 class InventoryProductEntry:
     # Initialisation de la classe, en prenant en argument un objet Product et une quantité initiale
     def __init__(self, product:Product, quantity):
-        """
-        'product' : un objet de type produit qui rassemble les différents attributs et caractéristiques de ce dernier
-        'quantity' : un entier qui représente le nombre des pièces du produit en question
-        """
+       
         # Initialisation des variables
         """
         Vous devez initialiser deux variables. 
         la variable 'sales' qui stocke le total des revenues des ventes du produit
         la variable 'expenses' qui stocke le total des dépenses pour restocker le produit
-        
         """
+        sales = 0
+        expenses = 0
 
     #Méthode Sell
     """
     La méthode sell est utilisée pour retirer la quantité vendue du produit depuis le stock.
     Elle met également à jour les ventes totales pour le produit.
-    
     """
+
     def sell(self, quantity):
         #Avant de mettre à jour l'état du stocke du produit, on doit vérifier si on a déjà une quantité suffisante à vendre.
         """
@@ -34,9 +32,9 @@ class InventoryProductEntry:
             Réduire la quantité en stock par la quantité demandée
             Ajouter le revenue total de la vente à la variable 'sales' en multipliant la quantité vendue par le prix du produit
             Retourner Vrai
-        
         """
-    
+        if sales <
+
     #Méthode Restock
     """
     La méthode restock est utilisée pour augmenter la quantité en stock lorsqu'un nouveau stock de produit est reçu. 
