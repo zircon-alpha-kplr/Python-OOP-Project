@@ -1,8 +1,8 @@
-1- Avant de faire un forck, il faut s'assurer de bien sauvegarder vos modifications dans le codespace, appuyez sur ![image](https://user-images.githubusercontent.com/123748165/223426093-6205abf1-90ef-46f4-b39c-ba13e3070f79.png).
+1- Avant de faire un fork, il faut s'assurer de bien sauvegarder vos modifications dans le codespace, appuyez sur ![image](https://user-images.githubusercontent.com/123748165/223426093-6205abf1-90ef-46f4-b39c-ba13e3070f79.png).
   ![Capture d’écran 2023-03-05 231218](https://user-images.githubusercontent.com/123748165/223422918-082c398d-690f-41f1-ab57-244e2427926d.png)<br>
 ==========================================
 
-2- Mettez votre prénom dans la partie message, puis appuyé sur validation.<br>
+2- Mettez votre prénom dans la partie message, puis appuyer sur validation.<br>
 ![image](https://user-images.githubusercontent.com/123748165/223423069-5075848d-d216-4cde-b4d3-11ccb5322018.png)<br>
 ==========================================
 
