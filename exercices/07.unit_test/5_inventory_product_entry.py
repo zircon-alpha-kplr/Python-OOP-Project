@@ -33,7 +33,7 @@ class InventoryProductEntry:
             Ajouter le revenue total de la vente à la variable 'sales' en multipliant la quantité vendue par le prix du produit
             Retourner Vrai
         """
-        if Product.quantity < sell.self.quantity:
+        if self.Product.quantity < self.sell.quantity:
             print("")
             False
         
