@@ -11,6 +11,8 @@ class InventoryProductEntry:
         la variable 'sales' qui stocke le total des revenus des ventes du produit
         la variable 'expenses' qui stocke le total des dépenses pour restocker le produit
         """
+        sales = 0
+        expenses = 0
 
     #Méthode Sell
     """
@@ -31,6 +33,14 @@ class InventoryProductEntry:
             Ajouter le revenue total de la vente à la variable 'sales' en multipliant la quantité vendue par le prix du produit
             Retourner Vrai
         """
+        if Product.quantity < sell.self.quantity:
+            print("")
+            False
+        
+        else:
+            self.quantity -= sell[quantity]
+            sales.product -= x * .quantity
+            True
 
     #Méthode Restock
     """

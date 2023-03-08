@@ -5,11 +5,23 @@ import re
 from unidecode import unidecode
 import class_generation_vdh
 
+"""
+def trimspaces(data):
+    import re
+    # Define a regular expression pattern to match quoted substrings
+    pattern = r'"[^"]*"'
+    # Replace spaces and hyphens with underscore
+    #return re.sub(pattern, lambda m: m.group(0).replace(" ", "_").replace("-", "_"), str(unidecode(json.dumps(data))))
+    data_s=json.dumps(data)
+    return re.sub(pattern, lambda m: m.group(0).replace(" ", "_").replace("-", "_"), data_s)
+"""
+
 #load JSON and convert to dict
 local_path = os.path.dirname(os.path.abspath(__file__)) #
 json_data = json.load(open(os.path.join(local_path, 'json_data.json'), "rb")) #load file JSON
 json_str = json.dumps(json_data) #.dumps to convert to string
 json_data = (unidecode(json_str)) #remove specials
+#json_data = trimspaces(json_data)
 json_dict = json.loads(json_data) #.loads : re-assign to json_dict
 
 def generate_class_hierarchy(json_dict :dict, superclass_name:str=None, superclass_args:list=[]):
